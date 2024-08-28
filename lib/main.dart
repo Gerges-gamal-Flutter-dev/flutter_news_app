@@ -18,14 +18,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,9 +25,13 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 233, 145, 23),
         centerTitle: true,
-        title: const Text('Flutter Demo'),
+        title: const Text('Flutter Demo',style: TextStyle(
+          color: Colors.black,
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+        ),),
       ),
-      body: Center(
+      body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -57,21 +53,30 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
               ]),
             ),
+            const SizedBox(
+              height: 20,
+            ),
             Container(
               alignment: Alignment.topCenter,
-              width: 365,
-              height: 200,
+              width: 385,
+              height: 250,
               decoration: BoxDecoration(
-                border: Border.all(color: const Color.fromARGB(255, 233, 145, 23)),
+                border:
+                    Border.all(color: const Color.fromARGB(255, 233, 145, 23)),
                 borderRadius: BorderRadius.circular(50),
               ),
-              child: Image.asset(
-                "assets/photos/IMG-20240714-WA0030-e1720977687311.jpg",
-                fit: BoxFit.cover,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(50),
+                
+                child: Image.asset(
+                  "assets/photos/IMG-20240714-WA0030-e1720977687311.jpg",
+                  fit: BoxFit.cover,
+                  
+                ),
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 15,
             ),
             const Text(
               "Pubg Mobile",
@@ -79,6 +84,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
               ),
+            ),
+            const SizedBox(
+              height: 15,
             ),
             const Text(
               "The PUBG Mobile update brings enhancements and experiences aimed at keeping game exciting and engaging for players. Whether you are a fan of.",
@@ -116,30 +124,21 @@ class _MyHomePageState extends State<MyHomePage> {
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            FloatingActionButton(
-              onPressed: _incrementCounter,
-              child: const Icon(Icons.add),
-            ),
             const Spacer(
               flex: 1,
             ),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Icon(Icons.facebook, color: Color.fromARGB(255, 3, 7, 226), size: 50.0),
-                FlutterLogo(textColor: Color.fromARGB(255, 8, 84, 172), size: 50.0),
+                Icon(Icons.facebook,
+                    color: Color.fromARGB(255, 3, 7, 226), size: 50.0),
+                FlutterLogo(
+                    textColor: Color.fromARGB(255, 8, 84, 172), size: 50.0),
               ],
             ),
+            const Spacer(
+              flex: 3,
+            )
           ],
         ),
       ),
